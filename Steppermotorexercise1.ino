@@ -32,18 +32,18 @@ digitalWrite(en,LOW);
 digitalWrite(dir,LOW);
 digitalWrite(pul,LOW);
 
-//Serial.println("Enter the Steps per Revolution of the Stepper Motor:   ");
- // while(Serial.available() > 0){
-   // NumberofSteps = Serial.read();
-//  }
-//Serial.println("Enter the Step Mode in which the Stepper Motor should work: "); /* 1- full Step , 2- half step , 3- 1/4 step , 4- 1/8 step, 5- 1/16 step*/
-   //while(Serial.available() > 0){
-    //StepMode = Serial.read();
- // }
-//Serial.println("Enter the speed at which Stepper Motor should work range 1-10,00,000: "); /* From the calculation that I have done, speed range of NEMA 23 lays between 1- 10,00,00  */
-   //while(Serial.available() > 0){
-    //Speed = Serial.read();
- // }
+/* Serial.println("Enter the Steps per Revolution of the Stepper Motor:   ");
+  while(Serial.available() > 0){
+    NumberofSteps = Serial.read();
+  }
+Serial.println("Enter the Step Mode in which the Stepper Motor should work: "); /* 1- full Step , 2- half step , 3- 1/4 step , 4- 1/8 step, 5- 1/16 step*/
+   /*while(Serial.available() > 0){
+    StepMode = Serial.read();
+ }
+Serial.println("Enter the speed at which Stepper Motor should work range 1-10,00,000: "); /* From the calculation that I have done, speed range of NEMA 23 lays between 1- 10,00,00  */
+  /* while(Serial.available() > 0){
+    Speed = Serial.read();
+  }*/
 StepCount_StepsCalculation();  /* Function which calculates step angle and step count based on the input given by the user */
 
 }
@@ -61,11 +61,12 @@ void loop() {
   
   for(LoopCounter = 0; LoopCounter < (StepCount * 2); LoopCounter++){/* why (StepCount * 2) because each step count coresponds to one high and low signal to pulse pin as I m doing ~digitalRead(pul), it requires two counts to complete one high and low signal */
    
-    digitalWrite(pul,~digitalRead(pul));    /*  */
+    digitalWrite(pul,HIGH);    /*  */
     delayMicroseconds(Speed);
-    
+    digitalWrite(pul,LOW);    /*  */
+    delayMicroseconds(Speed);
   }
-  //delay(1);
+  delay(1000);
 }
 
 /*This function calculates the step angle and step count based on the inputs given by the user*/
