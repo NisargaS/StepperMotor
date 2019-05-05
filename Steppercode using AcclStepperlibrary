@@ -1,0 +1,18 @@
+#include <AccelStepper.h>
+#include <MultiStepper.h>
+
+
+AccelStepper stepper(AccelStepper::FULL3WIRE,3, 4, 5);
+
+void setup() {
+  // put your setup code here, to run once:
+   Serial.begin(9600);
+
+   stepper.setMaxSpeed(180); /*Variable inside setMaxSpeed takes the value in steps per second. Max steps per second for NEMA 23 is 180, which corresponds to maxspeed 54rpm. */
+   stepper.setSpeed(50);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+   stepper.runSpeed();
+}
