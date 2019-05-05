@@ -2,7 +2,7 @@
 #include <MultiStepper.h>
 
 
-AccelStepper stepper(AccelStepper::FULL3WIRE,3, 4, 5);
+AccelStepper stepper(AccelStepper::FULL3WIRE, 4, 3, 5); /* in the argument 4 -> Pulse or Step input, 3 -> Direction , 5 -> enable*/
 
 void setup() {
   // put your setup code here, to run once:
