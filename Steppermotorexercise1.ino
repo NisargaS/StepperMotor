@@ -8,10 +8,10 @@
 const int en =  5;   /*Enable pin*/ 
 const int dir = 3;   /*Direction pin*/
 const int pul = 4;   /*Pulse pin*/
-int NumberofSteps;  /*variable defined to store the steps per revolution of motor */
-int StepMode;       /*variable defined to store the step mode/step sequence of motor */
+int NumberofSteps = 200;  /*variable defined to store the steps per revolution of motor */
+int StepMode = 2;       /*variable defined to store the step mode/step sequence of motor i.e 1- full Step , 2- half step , 3- 1/4 step , 4- 1/8 step, 5- 1/16 step */
 int StepCount;      /*variable defined to store the stepcount for one revolution based on the step sequence of motor */
-int Speed;          /*variable defined to store the speed of motor */
+int Speed = 5000;          /*variable defined to store the speed of motor */
 unsigned int LoopCounter; /*variable defined for for loop*/
 boolean pluse = HIGH; 
 boolean Direction = LOW; 
@@ -32,18 +32,18 @@ digitalWrite(en,LOW);
 digitalWrite(dir,LOW);
 digitalWrite(pul,LOW);
 
-Serial.println("Enter the Steps per Revolution of the Stepper Motor:   ");
-  while(Serial.available() > 0){
-    NumberofSteps = Serial.read();
-  }
-Serial.println("Enter the Step Mode in which the Stepper Motor should work: "); /* 1- full Step , 2- half step , 3- 1/4 step , 4- 1/8 step, 5- 1/16 step*/
-   while(Serial.available() > 0){
-    StepMode = Serial.read();
-  }
-Serial.println("Enter the speed at which Stepper Motor should work range 1-10,00,000: "); /* From the calculation that I have done, speed range of NEMA 23 lays between 1- 10,00,00  */
-   while(Serial.available() > 0){
-    Speed = Serial.read();
-  }
+//Serial.println("Enter the Steps per Revolution of the Stepper Motor:   ");
+ // while(Serial.available() > 0){
+   // NumberofSteps = Serial.read();
+//  }
+//Serial.println("Enter the Step Mode in which the Stepper Motor should work: "); /* 1- full Step , 2- half step , 3- 1/4 step , 4- 1/8 step, 5- 1/16 step*/
+   //while(Serial.available() > 0){
+    //StepMode = Serial.read();
+ // }
+//Serial.println("Enter the speed at which Stepper Motor should work range 1-10,00,000: "); /* From the calculation that I have done, speed range of NEMA 23 lays between 1- 10,00,00  */
+   //while(Serial.available() > 0){
+    //Speed = Serial.read();
+ // }
 StepCount_StepsCalculation();  /* Function which calculates step angle and step count based on the input given by the user */
 
 }
