@@ -46,27 +46,39 @@ Serial.println("Enter the speed at which Stepper Motor should work range 1-10,00
   }*/
 StepCount_StepsCalculation();  /* Function which calculates step angle and step count based on the input given by the user */
 
+      digitalWrite(dir,HIGH);
+     
+      for(LoopCounter = 0; LoopCounter < StepCount; LoopCounter++){
+   
+          digitalWrite(pul,HIGH);    /*  */
+          delayMicroseconds(Speed);
+          digitalWrite(pul,LOW);    /*  */
+          delayMicroseconds(Speed);
+     }
+  delay(1000);
+     
+      digitalWrite(dir,LOW);
+     
+      for(LoopCounter = 0; LoopCounter < StepCount; LoopCounter++){
+   
+          digitalWrite(pul,HIGH);    /*  */
+          delayMicroseconds(Speed);
+          digitalWrite(pul,LOW);    /*  */
+          delayMicroseconds(Speed);
+     }
+  delay(1000);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
 
   /* This is to make stepper motor to make roation once in clock wise direction and next rotation in anti clock wise direction*/
-      if(Direction == LOW){
+ /*     if(Direction == LOW){
         Direction = HIGH;   /*Clock wise rotation*/
-      }else{
+      }*/
+     /*else{
         Direction = LOW;    /*Anti-clock wise rotation*/
-      }
-  digitalWrite(dir,Direction);
-  
-  for(LoopCounter = 0; LoopCounter < (StepCount * 2); LoopCounter++){/* why (StepCount * 2) because each step count coresponds to one high and low signal to pulse pin as I m doing ~digitalRead(pul), it requires two counts to complete one high and low signal */
-   
-    digitalWrite(pul,HIGH);    /*  */
-    delayMicroseconds(Speed);
-    digitalWrite(pul,LOW);    /*  */
-    delayMicroseconds(Speed);
-  }
-  delay(1000);
+      }*/
 }
 
 /*This function calculates the step angle and step count based on the inputs given by the user*/
