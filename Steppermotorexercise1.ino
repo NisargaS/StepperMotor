@@ -75,10 +75,8 @@ void loop() {
   /* This is to make stepper motor to make roation once in clock wise direction and next rotation in anti clock wise direction*/
  /*     if(Direction == LOW){
         Direction = HIGH;   /*Clock wise rotation*/
-      }*/
      /*else{
         Direction = LOW;    /*Anti-clock wise rotation*/
-      }*/
 }
 
 /*This function calculates the step angle and step count based on the inputs given by the user*/
